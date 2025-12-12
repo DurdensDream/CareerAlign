@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --background: #f4f6f8;
+  --foreground: #0a1424;
+  --card-border: rgba(9, 16, 32, 0.08);
+  --card-sheen: rgba(255, 255, 255, 0.92);
+}
+
+body {
+  @apply antialiased;
+  background-color: var(--background);
+  color: var(--foreground);
+  background-image:
+    radial-gradient(circle at 5% 15%, rgba(15, 110, 120, 0.18), transparent 35%),
+    radial-gradient(circle at 75% 0%, rgba(240, 161, 79, 0.22), transparent 45%),
+    linear-gradient(180deg, #f7f7f9 0%, #edf1f4 45%, #f5f6f8 100%);
+  min-height: 100vh;
+}
+
+.glass-panel {
+  border-radius: 28px;
+  border: 1px solid var(--card-border);
+  background: linear-gradient(180deg, var(--card-sheen), rgba(255, 255, 255, 0.78));
+  box-shadow: 0 25px 80px rgba(4, 18, 31, 0.12);
+  backdrop-filter: blur(28px);
+  padding: 1.5rem;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.35), rgba(14, 165, 233, 0.35));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0) 0%,
+    rgba(226, 232, 240, 0.8) 50%,
+    rgba(226, 232, 240, 0) 100%
+  );
+  background-size: 700px 100%;
+}
